@@ -1,0 +1,66 @@
+/* Make sure to import this CSS in your component file */
+.logo-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.logo-slider-track {
+    display: flex;
+    width: calc(100% * 2); /* Double the width of the slider to allow for continuous sliding */
+    animation: slide 20s linear infinite;
+}
+
+.logo-slide {
+    flex: 1 0 auto;
+    width: 10%; /* Default width for large screens (4 logos visible at once) */
+    /* Reduce padding and margin to decrease space between logos */
+    padding: 0; 
+    margin: 0; 
+}
+
+.logo-img {
+    height: 4rem; /* Adjust based on your design */
+    object-fit: contain;
+}
+
+/* Keyframes for continuous sliding */
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive styling */
+@media (max-width: 1024px) {
+    .logo-slide {
+        width: 20%; /* Adjust to show 5 logos at once on medium screens */
+    }
+
+    .logo-img {
+        height: 2.5rem; /* Adjust based on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-slide {
+        width: 33.333%; /* Adjust to show 3 logos at once on smaller screens */
+    }
+
+    .logo-img {
+        height: 2rem; /* Adjust based on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-slide {
+        width: 20%; /* Adjust to show 2 logos at once on very small screens */
+    }
+
+    .logo-img {
+        height: 2.2rem; /* Adjust based on very small screens */
+    }
+}
